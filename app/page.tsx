@@ -30,11 +30,11 @@ export default function WishingApp() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 p-4">
-      <Card className="w-full max-w-md">
+      <Card className="w-full max-w-md border-border border-zinc-950 bg-white/10 backdrop-blur-lg border-none">
         <CardHeader>
           <CardTitle className="text-4xl font-bold text-center">Wishing App</CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className="border-zinc-950">
           {!wishLink ? (
             <motion.form 
               onSubmit={handleSubmit} 
@@ -46,6 +46,7 @@ export default function WishingApp() {
               <div className="space-y-2">
                 <Input
                   type="text"
+                  className=" border-2 bg-white/10 backdrop-blur-lg border-none"
                   value={event}
                   onChange={(e) => setEvent(e.target.value)}
                   placeholder="Enter event (e.g., Birthday, Anniversary)"
@@ -55,6 +56,8 @@ export default function WishingApp() {
               <div className="space-y-2">
                 <Input
                   type="text"
+                  className=" border-2  bg-white/10 backdrop-blur-lg border-none"
+
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Enter name"
@@ -64,15 +67,17 @@ export default function WishingApp() {
               <div className="space-y-2">
                 <Textarea
                   value={description}
+                  className=" min-h-[100px] bg-white/10 backdrop-blur-lg border-none text-slate-950"
+
                   onChange={(e) => setDescription(e.target.value)}
                   placeholder="Enter a personal message"
-                  className="min-h-[100px]"
+                  
                   required
                 />
               </div>
               <Button
                 type="submit"
-                className="w-full"
+                className="w-full bg-gradient-to-r from-purple-700 via-pink-600"
                 size="lg"
               >
                 Create Wish
@@ -80,7 +85,7 @@ export default function WishingApp() {
             </motion.form>
           ) : (
             <motion.div 
-              className="text-center"
+              className="text-center "
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
